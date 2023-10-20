@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 // Incluir controlador propio
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +32,8 @@ Route::prefix('categories')->group(function(){
 });
 
 Route::prefix('contacts')->group(function(){
-
+    Route::get('/',         [ContactController::class, 'index'])   ->name('contacts.index');
+    Route::get('/create',   [ContactController::class, 'create'])  ->name('contacts.create');
+    Route::get('/edit',     [ContactController::class, 'edit'])    ->name('contacts.edit');
+    Route::get('/show',     [ContactController::class, 'show'])    ->name('contacts.show');
 });

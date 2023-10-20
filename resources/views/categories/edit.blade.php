@@ -24,7 +24,7 @@
                     </label>
                 </div>
                 <a href="{{ route('categories.index') }}" class="btn btn-secondary"><i class="fas fa-angle-left"></i> Cancelar</a>
-                <button type="submit" class="btn btn-info"><i class="fas fa-check"></i> Guardar</button>
+                <button type="submit" class="btn btn-info"><i class="fas fa-edit"></i> Actualizar</button>
             </form>
         </div>
     </div>
