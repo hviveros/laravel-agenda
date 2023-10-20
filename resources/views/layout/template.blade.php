@@ -34,7 +34,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('home') }}"><i class="fas fa-home"></i> Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-address-book"></i> Categorías</a>
+                        <a class="nav-link" href="{{ route('categories.index') }}"><i class="fas fa-address-book"></i> Categorías</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-id-badge"></i> Contactos</a>
