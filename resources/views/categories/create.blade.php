@@ -9,8 +9,11 @@
     <h3>Agregar categoría</h3>
     <div class="card">
         <div class="card-body">
-            <form action="#" method="post">
-                <!-- @csrf -->
+            <form action="{{ route('categories.store') }}" method="post">
+                
+                @csrf
+                @method('POST')
+
                 <div class="mb-3">    
                     <label class="form-label">
                     Nombre:
