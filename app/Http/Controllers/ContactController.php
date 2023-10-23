@@ -7,63 +7,57 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
-        return view('contacts/home');
+        $contacts = Contact::get();
+        return view('contacts/home', compact('contacts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
-        //
         return view('contacts/create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
-        //
+        $contact = Contact::create([
+            'name'          => $request->name,
+            'description'   => $request->description,
+        ]);
+        return redirect()->route('contacts.index')->with('message','Agregado');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Contact $contact)
+
+    public function show($id)
     {
-        //
-        return view('contacts/show');
+        $contact = Contact::find($id);
+        return view('contacts/show', compact('contact'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Contact $contact)
+
+    public function edit($id)
     {
-        //
-        return view('contacts/edit');
+        $contact = Contact::find($id);
+        return view('contacts/edit', compact('contact'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Contact $contact)
+
+    public function update(Request $request, $id)
     {
-        //
+        $contact = Contact::find($id);
+        $contact->name         = $request->name;
+        $contact->description  = $request->description;
+        $contact->save();
+        return redirect()->route('contacts.index')->with('message','Actualizado');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Contact $contact)
+
+    public function destroy($id)
     {
-        //
+        $contact = Contact::find($id);
+        $contact->delete();
+        return redirect()->route('contacts.index')->with('message','Eliminado');
     }
 }

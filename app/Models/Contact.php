@@ -9,6 +9,6 @@ class Contact extends Model
 {
     use HasFactory;
 
-    protected $table = 'contacts';
+    protected $table = 'v_contacts_categories';
     protected $primaryKey = 'id';
 }

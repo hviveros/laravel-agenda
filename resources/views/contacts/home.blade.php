@@ -23,16 +23,18 @@
                     <th>Eliminar</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @foreach ($contacts as $contact)
+                        <tr>
+                            <td>{{ $contact->name }}</td>
+                            <td>{{ $contact->paternal }}</td>
+                            <td>{{ $contact->maternal }}</td>
+                            <td>{{ $contact->telephone }}</td>
+                            <td>{{ $contact->email }}</td>
+                            <td>{{ $contact->name_category }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
