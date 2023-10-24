@@ -51,22 +51,22 @@ class ContactController extends Controller
     public function edit($id)
     {
         $contact = Contact::find($id);
-        return view('contacts/edit', compact('contact'));
+        $categories = Category::all(['id', 'name']);
+        return view('contacts/edit', compact('contact', 'categories'));
     }
 
 
     public function update(Request $request, $id)
     {
         $contact = Contact::find($id);
-        $contact->name          = $request->name;
-        $contact->paternal      = $request->paternal;
-        $contact->maternal      = $request->maternal;
-        $contact->telephone     = $request->telephone;
-        $contact->email         = $request->email;
-        $contact->category      = $request->category;
-        print_r($contact);
-        // $contact->save();
-        // return redirect()->route('contacts.index')->with('message','Actualizado');
+        $contact->name      = $request->name;
+        $contact->paternal  = $request->paternal;
+        $contact->maternal  = $request->maternal;
+        $contact->telephone = $request->telephone;
+        $contact->email     = $request->email;
+        $contact->category  = $request->category;
+        $contact->save();
+        return redirect()->route('contacts.index')->with('message','Actualizado');
     }
 
 

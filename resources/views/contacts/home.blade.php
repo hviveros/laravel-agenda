@@ -27,8 +27,7 @@
                     <th>Teléfono</th>
                     <th>E-mail</th>
                     <th>Categoría</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
+                    <th colspan="2">Acción</th>
                 </thead>
                 <tbody>
                     @foreach ($contacts as $contact)
@@ -39,8 +38,16 @@
                             <td>{{ $contact->telephone }}</td>
                             <td>{{ $contact->email }}</td>
                             <td>{{ $contact->name_category }}</td>
-                            <td></td>
-                            <td></td>
+                            <td>
+                                <a href="{{ route('contacts.edit', $contact->id) }}" class="btn btn-info btn-sm">
+                                    <i class="fas fa-user-edit"></i> Actualizar
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{{ route('contacts.show', $contact->id) }}" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-times"></i> Eliminar
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
