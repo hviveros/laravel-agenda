@@ -14,7 +14,6 @@
     <script src="https://kit.fontawesome.com/573783946a.js" crossorigin="anonymous"></script>
 
     <!-- DataTable CSS + Bootstrap 5 -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 
 </head>
@@ -64,6 +63,8 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
+    
+    <!-- Sección para dataTable -->
     @yield('dataTable')
 
 </body>
