@@ -9,8 +9,11 @@
     <h3>Agregar contacto</h3>
     <div class="card">
         <div class="card-body">
-            <form action="#" method="post">
-                <!-- @csrf -->
+            <form action="{{ route('contacts.store') }}" method="post">
+                
+                @csrf
+                @method('POST')
+
                 <div class="mb-3">    
                     <label class="form-label">
                     Nombre:
@@ -43,9 +46,13 @@
                 </div>
                 <div class="mb-3">    
                     <label class="form-label">
-                    Categoría
                     <select name="category" class="form-select" required>
                         <option value="">---</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
                     </select>
                     </label>
                 </div>

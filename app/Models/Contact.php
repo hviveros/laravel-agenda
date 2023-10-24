@@ -9,6 +9,16 @@ class Contact extends Model
 {
     use HasFactory;
 
-    protected $table = 'v_contacts_categories';
+    protected $table = 'contacts';
     protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'id', 
+        'name', 
+        'paternal',
+        'maternal',
+        'telephone',
+        'email',
+        'category'
+    ];
 }
